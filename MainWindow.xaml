@@ -1,0 +1,40 @@
+﻿<Window x:Class="MorphologicOperators.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MorphologicOperators"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="300">
+            <Button Content="Wczytaj obraz" Click="LoadImage"/>
+
+            <GroupBox Header="Element Strukturyzujący">
+                <StackPanel>
+                    <TextBox x:Name="StructElementWidth" Width="50" />
+                    <TextBox x:Name="StructElementHeight" Width="50" />
+                    <Button Content="Stwórz element" Click="CreateStructuringElement"/>
+                    <ScrollViewer>
+                        <UniformGrid x:Name="StructuringElementGrid" Rows="3" Columns="3"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Operacje Morfologiczne">
+                <StackPanel>
+                    <Button Content="Dylatacja" Click="ApplyDilation"/>
+                    <Button Content="Erozja" Click="ApplyErosion"/>
+                    <Button Content="Otwarie" Click="ApplyOpening"/>
+                    <Button Content="Zamknięcie" Click="ApplyClosing"/>
+                    <Button Content="Hit-or-Miss" Click="ApplyHitOrMiss"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Image x:Name="ImageControl" Width="500" Height="500" Margin="10"/>
+            <Image x:Name="ProcessedImageControl" Width="500" Height="500" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
